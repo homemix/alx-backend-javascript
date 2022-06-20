@@ -8,5 +8,5 @@ export default function cleanSet(set, startString) {
       newString += `${item.slice(startString.length)}-`;
     }
   }
-  return newString;
+  return newString.slice(-1) === '-' ? newString.slice(0, -1) : newString;
 }
