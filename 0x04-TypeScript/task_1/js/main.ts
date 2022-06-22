@@ -1,52 +1,60 @@
-
-interface Teacher{
+export interface Teacher {
     // an interface for teacher
-    firstName:string
-    fullTimeEmployee:boolean
-    lastName:string
-    location:string
-    contract?:boolean
+    readonly firstName: string
+    fullTimeEmployee: boolean
+    readonly lastName: string
+    location: string
+    yearsOfExperience?: number
+    [index: string]: any
 }
 
 
-interface Directors extends Teacher{
+export interface Directors extends Teacher {
     // an interface for director extending teacher
-    numberOfReports:number;
+    numberOfReports: number;
 }
 
-function printTeacher(firstName:string, lastName:string){
+export function printTeacher(firstName: string, lastName: string) {
     // a function to print teacher
 // with arguments firstName and lastName
-    return`${firstName.slice(0,1)}. ${lastName}`
+    return `${firstName.slice(0, 1)}. ${lastName}`
 }
 
-interface printTeacherFunction{
+export interface printTeacherFunction {
     // an interface for the function print teacher
-    (firstName:string, lastName:string):string
+    (firstName: string, lastName: string): string
 }
 
-interface Student{
+export interface Student {
     // an interface for student class
-    firstName:string
-    lastName:string
+
+    workOnHomework(): string;
+    displayName(): string;
 }
-class StudentClass implements Student{
+
+export class StudentClass implements Student {
 // a class for student class
-    firstName: string;
-    lastName: string;
-    constructor(firstName:string, lastName:string){
-        this.firstName = firstName;
-        this.lastName = lastName;
+    private readonly _firstName: string;
+   private _lastName: string;
+
+    constructor(firstName: string, lastName: string) {
+        this._firstName = firstName;
+        this._lastName = lastName;
     }
-    workOnHomework():string{
+
+    workOnHomework(): string {
         return `Currently working`
+    }
+
+    displayName(): string {
+        return `${this._firstName}`
     }
 }
 
 
 // testing and examples
 // test director interface
-const director1:Directors = {
+const director1: Directors = {
     firstName: 'John',
     lastName: 'Doe',
     location: 'London',
@@ -66,8 +74,8 @@ const teacher3: Teacher = {
 console.log(teacher3);
 
 // test print teacher function
-console.log(printTeacher('John','Doe'))
+console.log(printTeacher('John', 'Doe'))
 
 // test class student
-const student1: StudentClass = new StudentClass('John','Doe');
-console.log(student1.workOnHomework());
+const student1: StudentClass = new StudentClass('John', 'Doe');
+console.log(student1.displayName());
