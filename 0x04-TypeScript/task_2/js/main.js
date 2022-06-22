@@ -1,3 +1,6 @@
+"use strict";
+exports.__esModule = true;
+exports.createEmployee = void 0;
 var Director = /** @class */ (function () {
     function Director() {
     }
@@ -39,6 +42,7 @@ function createEmployee(salary) {
         return new Director;
     }
 }
+exports.createEmployee = createEmployee;
 console.log(createEmployee(200));
 console.log(createEmployee(1000));
 console.log(createEmployee('$500'));
