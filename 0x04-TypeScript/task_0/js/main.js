@@ -1,33 +1,22 @@
-interface Student {
-    firstName: string
-    lastName: string
-    age: number
-    location: string
-}
-
-let student1: Student
-let student2: Student
+let student1;
+let student2;
 student1 = {
     firstName: 'John',
     lastName: 'Doe',
     age: 20,
     location: 'New York'
-}
+};
 student2 = {
     firstName: 'Jane',
     lastName: 'Doe',
     age: 20,
     location: 'New York'
-}
-
-let studentsList: Student[] = [student1, student2]
-
-console.log(studentsList)
-
-
+};
+let studentsList = [student1, student2];
+console.log(studentsList);
 let table = "<table>";
 for (let key in studentsList) {
-    console.log(studentsList[key])
+    console.log(studentsList[key]);
     table += `<tr>
 <td>${key}</td>
 <td>${studentsList[key]}</td>
@@ -35,5 +24,4 @@ for (let key in studentsList) {
 }
 table += "</table>";
 // document.getElementById("demoB").innerHTML = table;
-console.log(table)
-
+console.log(table);
