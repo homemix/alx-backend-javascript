@@ -1,10 +1,10 @@
 {
   "name": "package",
   "version": "1.0.0",
-  "description": "A package for unit test in moch and chai",
+  "description": "A package for unit test in mocha and chai",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+     "test": "node ./node_modules/mocha/bin/mocha"
   },
   "dependencies": {
     "chai": "^3.5.0",
